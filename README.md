@@ -2,7 +2,7 @@
 
 ![powershell](powershell.png "powershell")
 
-This is a fork of amiechen's [utility](https://github.com/amiechen/twitch-batch-loader).
+This is a fork/update of amiechen's [utility](https://github.com/amiechen/twitch-batch-loader) with an OAuth utility to address the change in the Twitch API to require an access token.
 
 ## Pre-Install:
 
