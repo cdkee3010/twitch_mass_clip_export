@@ -10,6 +10,10 @@ This is a fork of amiechen's [utility](https://github.com/amiechen/twitch-batch-
 Once finished, copy the `Client ID`. You will need it to run the script.
 Also generate a new `Client Secret` and copy it.
 
+![appreg](app_reg.png "app_reg")
+
+![app2](app2.png "app2")
+
 2) Install python 3 on your machine if you haven't (open up Powershell if you're on windows and just type `python3`. This should take you to the Windows Store. 
 
 3) Install the `requests` python package by going to your terminal and running 
