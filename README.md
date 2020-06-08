@@ -31,6 +31,7 @@ This will output an oauth access token for you to use. Copy this somewhere. You 
 
 
 1) Delete the example clips in `clips.txt` and include the ones you want. Put each URL on it's own line. No commas or anything like that.
+
 ![clips](clips.png "clips")
 
 2) Then run the clip export script with your Client_ID and oauth access token from step (4) above.
