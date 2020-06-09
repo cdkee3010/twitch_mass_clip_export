@@ -45,3 +45,5 @@ cd twitch_mass_clip_export
 python3 mass_export.py <CLIENT_ID> <OAUTH_ACCESS_TOKEN>
 ```
 
+And you're off! Downloaded files will appear in the `downloads` folder.
+
