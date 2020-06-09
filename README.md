@@ -47,3 +47,5 @@ python3 mass_export.py <CLIENT_ID> <OAUTH_ACCESS_TOKEN>
 
 And you're off! Downloaded files will appear in the `downloads` folder.
 
+Once the downloads are finished, the script compares the files you downloaded with what was in `clips.txt`. If it detected missing clips (ie some clips didn't download properly), it will generate another file called `differences.txt` with a list of the missing clips.
+
