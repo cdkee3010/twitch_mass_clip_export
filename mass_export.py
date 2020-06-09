@@ -2,6 +2,8 @@ import re
 import urllib.request
 import requests
 import sys
+from os import listdir
+from os.path import isfile, join
 
 basepath = 'downloads/'
 base_clip_path = 'https://clips-media-assets2.twitch.tv/'
@@ -46,3 +48,47 @@ for clip in open('clips.txt', 'r'):
     print('\nDone.')
 
 print('Finished downloading all the videos.')
+
+#Check for clips not downloaded, output difference.txt
+
+onlyfiles = [f for f in listdir('downloads/') if isfile(join('downloads/', f))]
+
+files = []
+
+for filename in onlyfiles:
+    if filename == 'cross_reference.py' or filename == 'downloads.txt':
+        continue
+    else:
+        a = filename.split("_")
+        b = (a[len(a) - 1]).split(".")
+        files.append((b[0]))
+
+clips = open("clips.txt", "r")
+clips_list = []
+
+for lines in clips:
+    c = lines.split("/")
+    d = (c[len(c) - 1])
+    e = d.splitlines()
+    clips_list.append(e[0])
+
+f = (list(set(clips_list) - set(files)))
+
+if len(f) == 0:
+    print("Downloads completed successfully! No clips missed!")
+else:
+    saved_stdout = sys.stdout
+    count = 0
+    discrepancy = open("difference.txt", "w+")
+    sys.stdout = discrepancy
+    for items in f:
+        if len(items) > 1:
+            print("https://clips.twitch.tv/"+items)
+            count = count + 1
+
+    discrepancy.close()
+    sys.stdout = saved_stdout
+
+    print("Discrepancy between files created and clips.txt: "+str(count))
+    print("difference.txt file created - shows clips NOT downloaded")
+
