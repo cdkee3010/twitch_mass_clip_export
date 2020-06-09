@@ -4,6 +4,8 @@
 
 This is a fork/update of amiechen's [utility](https://github.com/amiechen/twitch-batch-loader) with an OAuth utility to address the change in the Twitch API to require an access token.
 
+This script allows you to download Twitch clips in bulk. Good if you want to archive Clips locally because you need to delete them from Twitch due to DMCA.
+
 ## Pre-Install:
 
 1) Get a twitch `Client ID` by registering a twitch app [here](https://dev.twitch.tv/dashboard/apps/create). You can set the redirect to `http://localhost`
