@@ -32,8 +32,12 @@ for clip in open('clips.txt', 'r'):
     mp4_url, clip_title = retrieve_mp4_data(slug)
     regex = re.compile('[^a-zA-Z0-9_]')
     clip_title = clip_title.replace(' ', '_')
-    out_filename = regex.sub('', clip_title) + '.mp4'
+    new_clip_title = clip_title+"_"+slug
+    out_filename = regex.sub('', new_clip_title) + '.mp4'
     output_path = (basepath + out_filename)
+
+    #debug code
+    #print(out_filename)
 
     print('\nDownloading clip slug: ' + slug)
     print('"' + clip_title + '" -> ' + out_filename)
