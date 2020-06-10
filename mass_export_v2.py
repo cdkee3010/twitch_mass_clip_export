@@ -32,8 +32,9 @@ for clip in open('clips.txt', 'r'):
     print('"' + title + '" -> ' + out_filename)
     print(mp4_url)
     try:
-      urllib.request.urlretrieve(mp4_url, output_path, reporthook=dl_progress)
-      print('\nDone.')
+      if not os.path.isfile(output_path):
+        urllib.request.urlretrieve(mp4_url, output_path, reporthook=dl_progress)
+        print('\nDone.')
     except:
       skipped_clips.append((out_filename, mp4_url))
       print('\nError: ' + str(sys.exc_info()[0]))
