@@ -28,16 +28,20 @@ for clip in open('clips.txt', 'r'):
     #debug code
     #print(out_filename)
 
-    print('\nDownloading clip slug: ' + slug)
-    print('"' + title + '" -> ' + out_filename)
-    print(mp4_url)
-    try:
-      if not os.path.isfile(output_path):
-        urllib.request.urlretrieve(mp4_url, output_path, reporthook=dl_progress)
-        print('\nDone.')
-    except:
-      skipped_clips.append((out_filename, mp4_url))
-      print('\nError: ' + str(sys.exc_info()[0]))
+    if not isfile(output_path):
+      print('\nDownloading clip slug: ' + slug)
+      print('"' + title + '" -> ' + out_filename)
+      print(mp4_url)
+      try:
+          urllib.request.urlretrieve(mp4_url, output_path, reporthook=dl_progress)
+          print('\nDone.')
+      except:
+        skipped_clips.append((out_filename, mp4_url))
+        print('\nError: ' + str(sys.exc_info()[0]))
+        print('\n' + str(sys.exc_info()[1]))
+        print('\n' + str(sys.exc_info()[2]))
+    else:
+      print("\n"+out_filename+" already downloaded. Skipping...\n")
 
 print('\nFinished downloading all the videos.')
 
@@ -52,7 +56,7 @@ else:
     sys.stdout = discrepancy
     for clip_data in skipped_clips:
       filename, mp4_url = clip_data
-      print(filename + SEPARATOR + mp4_url + '\n')
+      print(filename + SEPARATOR + mp4_url)
       # count = count + 1
 
     discrepancy.close()
